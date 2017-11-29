@@ -1,0 +1,37 @@
+---
+title: "Using the `flights` package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using the `flights` package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Want to gain more information on flights than what is given in the `nycflights13` data package? Then check out this package!
+
+```{r}
+library(flights)
+```
+
+## Different functions available:
+`milestokm` converts distance from miles to kilometres
+```{r}
+#Instead of multiplying the distance in miles by 1.60934 use the `milestokm` function!
+milestokm(150)
+```
+
+`fuel` converts distance in kilometres to the fuel (in litres) used for the flight based on the fuel efficiency of a Boeing 747.
+```{r}
+#Instead of multiplying the distance in kilometres by the fuel efficiency of a Boeing 747 (1,200 litres/ 100 km) to get the fuel (in litres) of a flight use the `fuel` function!
+fuel(241.401)
+```
+
+
+`arrivaldelay` and `departuredelay` determine whether it is worth taking a flight based on the arrival and departure delay. If the arrival or departure delay is greater than 120 minutes than the function will return and print the following text "Flight is always delayed on arrival" or "Flight is always delayed on departure", respectively. If the arrival or departure delay is less than 120 minutes the function will return the following text "Take this flight".
+```{r}
+arrivaldelay(130)
+arrivaldelay(60)
+departuredelay(130)
+departuredelay(60)
+```
+
